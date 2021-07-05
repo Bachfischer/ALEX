@@ -351,3 +351,7 @@ MigrationBackup/
 
 # Local build directory
 build/
+cmake-build-debug/
+
+# IDE-specific
+.idea
