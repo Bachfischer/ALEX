@@ -3,6 +3,13 @@
 
 /*
  * This short sample program demonstrates ALEX's API.
+ *
+ * 
+ * Compile with:
+ *   g++ main.cpp -std=c++14 -O3 -march=native -Wall -Wextra -o example
+ * 
+ * Run with:
+ *   ./example
  */
 
 #include "../core/alex.h"
