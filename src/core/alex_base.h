@@ -71,15 +71,20 @@ class LinearModel {
   explicit LinearModel(const LinearModel& other) : a_(other.a_), b_(other.b_) {}
 
   void expand(double expansion_factor) {
+    std::cout << "Expanding with expansion factor " << expansion_factor << std::endl;
     a_ *= expansion_factor;
     b_ *= expansion_factor;
+    std::cout << "New model parameters after expansion: " << a_ << " - Intercept: " << b_ << std::endl;
+
   }
 
   inline int predict(T key) const {
+    std::cout << "Slope: " << a_ << " - Intercept: " << b_ << std::endl;
     return static_cast<int>(a_ * static_cast<double>(key) + b_);
   }
 
   inline double predict_double(T key) const {
+    std::cout << "Slope: " << a_ << " - Intercept: " << b_ << std::endl;
     return a_ * static_cast<double>(key) + b_;
   }
 };
@@ -122,6 +127,7 @@ class LinearModelBuilder {
         (static_cast<long double>(count_) * xx_sum_ - x_sum_ * x_sum_));
     auto intercept = static_cast<double>(
         (y_sum_ - static_cast<long double>(slope) * x_sum_) / count_);
+    std::cout << "Updating model " << &model_ << "! Slope_old " << model_->a_ << " - Intercept_old: " << model_->b_ << std::endl;
     model_->a_ = slope;
     model_->b_ = intercept;
 
@@ -130,6 +136,7 @@ class LinearModelBuilder {
       model_->a_ = (y_max_ - y_min_) / (x_max_ - x_min_);
       model_->b_ = -static_cast<double>(x_min_) * model_->a_;
     }
+    std::cout << "Updating model " << &model_ << "! Slope_new " << model_->a_ << " - Intercept_new: " << model_->b_ << std::endl;
   }
 
  private:
