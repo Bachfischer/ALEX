@@ -13,8 +13,8 @@
 #include "utils.h"
 
 // Modify these if running your own workload
-#define KEY_TYPE double
-#define PAYLOAD_TYPE double
+#define KEY_TYPE uint64_t
+#define PAYLOAD_TYPE uint64_t
 
 /*
  * Required flags:
